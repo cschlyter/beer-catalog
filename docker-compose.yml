@@ -1,0 +1,36 @@
+version: "3.8"
+
+services:
+  database:
+    container_name: beer-catalog-database
+    environment:
+      - POSTGRES_DB=beer-catalog
+      - POSTGRES_USER=beer-catalog
+      - POSTGRES_PASSWORD=beer-catalog
+    image: postgres:15.2
+    ports:
+      - "5433:5432"
+    volumes:
+      - beer-catalog-database:/var/lib/postgresql/data
+
+  server:
+    build:
+      context: ./server
+    container_name: beer-catalog-server
+    depends_on:
+      - database
+    environment:
+      - SQL_ENGINE=django.db.backends.postgresql
+      - SQL_DATABASE=beer-catalog
+      - SQL_USER=beer-catalog
+      - SQL_PASSWORD=beer-catalog
+      - SQL_HOST=beer-catalog-database
+      - SQL_PORT=5432
+    command: ["bash", "start.sh"]
+    ports:
+      - 8003:8000
+    volumes:
+      - ./server:/usr/src/app
+
+volumes:
+  beer-catalog-database:

@@ -1,0 +1,41 @@
+[
+  {
+    "model": "catalog.Beer",
+    "fields": {
+      "name": "Kaedwenian Stout",
+      "country": "Kaedwen",
+      "description": "Dark beer from Kaedwen.",
+      "id": "bc13d35f-3da3-4e95-8ca0-d4442c83c42a",
+      "points": 60,
+      "price": 5.0,
+      "style": "Stout",
+      "brewery": "The Silver Salamander Inn"
+    }
+  },
+  {
+    "model": "catalog.Beer",
+    "fields": {
+      "name": "Redanian Lager",
+      "country": "Redania",
+      "description": "An excellent beer brewed from Redanian barley.",
+      "id": "a7c3811d-7cc3-45f0-9584-6f50d87f76ce",
+      "points": 87,
+      "price": 5.0,
+      "style": "Lager",
+      "brewery": "Scarlet Cardinal Inn"
+    }
+  },
+  {
+    "model": "catalog.Beer",
+    "fields": {
+      "name": "Rivian Kriek",
+      "country": "Rivia",
+      "description": "A cherry-flavored beer from Rivia.",
+      "id": "7524846b-ba3c-43b2-b516-03c43a53851a",
+      "points": 90,
+      "price": 43.0,
+      "style": "Sour",
+      "brewery": "The Fox Inn"
+    }
+  }
+]
