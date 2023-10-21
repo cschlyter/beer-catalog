@@ -30,12 +30,25 @@
     "fields": {
       "name": "Rivian Kriek",
       "country": "Rivia",
-      "description": "A cherry-flavored beer from Rivia.",
+      "description": "An amber cherry-flavored beer from Rivia.",
       "id": "7524846b-ba3c-43b2-b516-03c43a53851a",
       "points": 90,
       "price": 43.0,
       "style": "Sour",
       "brewery": "The Fox Inn"
+    }
+  },
+  {
+    "model": "catalog.Beer",
+    "fields": {
+      "name": "Rivian Amber",
+      "country": "Rivia",
+      "description": "Legendary amber beer from Rivia.",
+      "id": "63362025-82cd-46e6-a105-13fcb2d0f46a",
+      "points": 78,
+      "price": 9.96,
+      "style": "Amber",
+      "brewery": "Mirt's Mellow Ales"
     }
   }
 ]

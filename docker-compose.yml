@@ -13,12 +13,27 @@ services:
     volumes:
       - beer-catalog-database:/var/lib/postgresql/data
 
+  elasticsearch:
+    container_name: beer-catalog-elasticsearch
+    environment:
+      - ES_JAVA_OPTS=-Xms2g -Xmx2g
+      - bootstrap.memory_lock=true
+      - discovery.type=single-node
+      # WARNING: Enable X-Pack security for production builds
+      - xpack.security.enabled=false
+    image: elasticsearch:7.17.9
+    ports:
+      - 9200:9200
+    volumes:
+      - beer-catalog-elasticsearch:/usr/share/elasticsearch/data
+
   server:
     build:
       context: ./server
     container_name: beer-catalog-server
     depends_on:
       - database
+      - elasticsearch
     environment:
       - SQL_ENGINE=django.db.backends.postgresql
       - SQL_DATABASE=beer-catalog
@@ -26,11 +41,25 @@ services:
       - SQL_PASSWORD=beer-catalog
       - SQL_HOST=beer-catalog-database
       - SQL_PORT=5432
+      - ES_HOSTS=http://beer-catalog-elasticsearch:9200
     command: ["bash", "start.sh"]
     ports:
       - 8003:8000
     volumes:
       - ./server:/usr/src/app
 
+  client:
+    build:
+      context: ./client
+    command: ["yarn", "start"]
+    container_name: beer-catalog-client
+    depends_on:
+      - server
+    ports:
+      - 3000:3000
+    volumes:
+      - ./client:/usr/src/app
+
 volumes:
   beer-catalog-database:
+  beer-catalog-elasticsearch:

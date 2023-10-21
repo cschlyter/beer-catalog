@@ -7,6 +7,7 @@ from .models import Beer
 class BeerAdmin(admin.ModelAdmin):
     fields = (
         "id",
+        "name",
         "country",
         "description",
         "points",
@@ -16,6 +17,7 @@ class BeerAdmin(admin.ModelAdmin):
     )
     list_display = (
         "id",
+        "name",
         "country",
         "points",
         "price",
@@ -23,6 +25,7 @@ class BeerAdmin(admin.ModelAdmin):
         "brewery",
     )
     list_filter = (
+        "name",
         "country",
         "style",
         "brewery",
