@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# 🍺 Beer Catalog Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 🌐 Overview
 
-## Available Scripts
+This project provides a beer catalog with search functionality, leveraging a blend of **Python, Django, React**, and **Elasticsearch**.
 
-In the project directory, you can run:
+## 🖥️ Frontend
 
-### `yarn start`
+### 🛠️ Technologies:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- `React.js`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 🔍 Features:
 
-### `yarn test`
+- **Search Component**: A React component allowing users to search within the beer catalog.
+- **ResultList Component**: Displays the search results.
+- **Paginator Component**: A pagination tool for search results.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 📤 Execution:
 
-### `yarn build`
+The front-end sends a GET request to the API:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+````javascript
+http://localhost:8003/api/v1/catalog/es-beers/
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+## 🚀 Backend
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 🛠️ Technologies:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- `Python`
+- `Django`
+- `Elasticsearch` (for optimized searches within the catalog)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 📄 Details:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The backend was developed using **Python** and **Django**, and it integrates with **Elasticsearch** to offer efficient searches in the beer catalog. The system was containerized using `Docker`, which makes deployment easier and ensures consistency across different environments.
 
-## Learn More
+### 📦 Infrastructure:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The system is containerized with `Docker`. Below is a simplified example of a `Dockerfile` (assuming you might have one) for illustration:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```dockerfile
+FROM python:3.8
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+COPY . .
+CMD ["python", "manage.py", "runserver"]
+````
