@@ -1,3 +1,5 @@
 .result-list {
   padding: 20;
+  width: auto;
+  overflow: hidden;
 }
