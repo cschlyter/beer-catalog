@@ -1,5 +1,7 @@
 # 🍺 Beer Catalog Project
 
+# 🍺 Beer Catalog Project
+
 ## 🌐 Overview
 
 This project provides a beer catalog with search functionality, leveraging a blend of **Python, Django, React**, and **Elasticsearch**.
